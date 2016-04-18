@@ -13,6 +13,11 @@
     <div class="link" id="link-<%= link.id %>">
       <%= link_to link.title, link.url %>
       <%= button_to "Edit", edit_link_path(id: link.id), method: :get if link.id %>
+      <% if link.read %>
+        <button type="button" name="unread" id="unread">Mark As Unread</button>
+      <% else %>
+        <button type="button" name="read" id="read">Mark As Read</button>
+      <% end %>
     </div>
   <% end %>
 </div>
