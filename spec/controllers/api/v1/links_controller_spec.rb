@@ -2,15 +2,16 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::LinksController, type: :controller do
   it '.update link to read as true' do
-    link = create(:link)
-    link_data = { link: { read: true }}
+    user = create(:user_with_link)
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
+    link = user.links.first
 
     put :update, id: link.id, format: :json, link: { read: true  }
 
     expect(response.status).to eq 204
 
-    link_1_updated = Link.find(link_1.id)
+    link_updated = Link.find(link.id)
 
-    expect(link_1_updated.read).to be true
+    expect(link_updated.read).to be true
   end
 end
