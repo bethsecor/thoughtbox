@@ -10,10 +10,13 @@
 
 <label for="link_search_filter">Search</label>
 <%= text_field :link_search, :filter %>
-
 <br>
+
 <label>Filter by status:</label>
 <%= select :link_status, :filter, ["Read", "Unread"], {include_blank: true} %>
+<br>
+
+<button id='sort-alphabetically' class='btn'>Sort</button>
 <br>
 
 <div id="links-list">
@@ -31,6 +34,5 @@
         <button name="read" id="read">Mark As Read</button>
       <% end %>
     </div>
-    <br>
   <% end %>
 </div>
