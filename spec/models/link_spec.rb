@@ -18,4 +18,10 @@ RSpec.describe Link, type: :model do
 
     expect(link).to be_invalid
   end
+
+  it 'should have a default read status' do
+    link = Link.new(title: "Cats", url: "https://www.reddit.com/r/cats/")
+
+    expect(link.read).to be false
+  end
 end
