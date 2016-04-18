@@ -24,6 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem "validate_url"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 #
@@ -39,6 +41,7 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'mocha'
 end
 
 group :development do
