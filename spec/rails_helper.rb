@@ -10,6 +10,8 @@ require 'database_cleaner'
 
 ActiveRecord::Migration.maintain_test_schema!
 
+Capybara.javascript_driver = :selenium
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
