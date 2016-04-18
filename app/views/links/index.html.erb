@@ -10,7 +10,10 @@
 
 <div id="links-list">
   <% @links.each do |link| %>
-    <div class="link" id="link-<%= link.id %>">
+    <div class="link"
+         id="link-<%= link.id %>"
+         data-id="<%= link.id %>"
+         data-read="<%= link.read %>">
       <%= link_to link.title, link.url %>
       <%= button_to "Edit", edit_link_path(id: link.id), method: :get if link.id %>
       <% if link.read %>
