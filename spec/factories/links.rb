@@ -4,5 +4,9 @@ FactoryGirl.define do
     url "https://www.brainpickings.org/"
     read false
     user
+
+    factory :read_link do
+      read true
+    end
   end
 end

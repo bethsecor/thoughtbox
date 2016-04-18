@@ -12,5 +12,15 @@ FactoryGirl.define do
         create_list(:link, evaluator.links_count, user: user)
       end
     end
+
+    factory :user_with_read_link do
+      transient do
+        links_count 1
+      end
+
+      after(:create) do |user, evaluator|
+        create_list(:read_link, evaluator.links_count, user: user)
+      end
+    end
   end
 end
