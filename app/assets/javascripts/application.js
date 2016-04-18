@@ -18,4 +18,5 @@ $(document).ready( function(){
   markAsRead();
   markAsUnread();
   searchLinks();
+  filterStatus();
 });
