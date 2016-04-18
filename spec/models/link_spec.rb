@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Link, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'should only accept a valid url' do
+    link = Link.new(title: "Cats", url: "www.reddit")
+
+    expect(link).to be_invalid
+  end
 end
