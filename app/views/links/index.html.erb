@@ -2,6 +2,7 @@
 
 <%= link_to "Sign Out", logout_path, method: :delete %>
 
+<h3>Add a link:</h3>
 <%= form_for @link do |f| %>
 
   <% if @link.errors.any? %>
