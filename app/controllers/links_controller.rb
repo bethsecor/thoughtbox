@@ -11,6 +11,7 @@ class LinksController < ApplicationController
     if @link.save
       redirect_to root_path
     else
+      @links = current_user.links
       render :index
     end
   end
