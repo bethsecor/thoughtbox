@@ -3,24 +3,8 @@
 <%= link_to "Sign Out", logout_path, method: :delete %>
 
 <h3>Add a link:</h3>
-<%= form_for @link do |f| %>
 
-  <% if @link.errors.any? %>
-    <ul>
-      <% @link.errors.full_messages.each do |message| %>
-        <li><strong class="error"> <%= message %> </strong> </li>
-      <% end %>
-    </ul>
-  <% end %>
-
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br>
-  <%= f.label :url %>
-  <%= f.text_field :url %>
-  <br>
-  <%= f.submit "Submit" %>
-<% end %>
+<%= render partial: 'form' %>
 
 <h3>My Links</h3>
 
@@ -28,6 +12,7 @@
   <% @links.each do |link| %>
     <div class="link" id="link-<%= link.id %>">
       <%= link_to link.title, link.url %>
+      <%= button_to "Edit", edit_link_path(id: link.id), method: :get if link.id %>
     </div>
   <% end %>
 </div>

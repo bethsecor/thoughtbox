@@ -3,9 +3,11 @@ require 'rails_helper'
 RSpec.feature "UserCanEditLinks", type: :feature do
   it 'should see a button to edit a link' do
     user = create(:user_with_link)
-    ApplicationController.any_instance.stubs(:current_user).returns(user)
-    
-    visit '/'
+    visit login_path
+
+    fill_in "Email", with: user.email
+    fill_in "Password", with: "123"
+    click_on "Submit"
 
     link = user.links.first
 
@@ -20,7 +22,7 @@ RSpec.feature "UserCanEditLinks", type: :feature do
     fill_in "Url", with: "https://www.youtube.com/watch?v=OxgKvRvNd5o"
     click_on "Submit"
 
-    expect(current_path).to eq  root_path
+    expect(current_path).to eq root_path
 
     within("#link-#{link.id}") do
       expect(page).to have_link "Crazy CATS", href: "https://www.youtube.com/watch?v=OxgKvRvNd5o"
