@@ -12,13 +12,13 @@ RSpec.feature "UserCanSortLinksAlphabeticallies", type: :feature do
 
     click_on "Sort"
 
-    within("#links-list div:nth-child(1)") do
+    within(".link:nth-of-type(1)") do
       expect(page).to have_content("Cats")
     end
-    within("#links-list div:nth-child(2)") do
+    within(".link:nth-of-type(2)") do
       expect(page).to have_content("Flowers")
     end
-      within("#links-list div:nth-child(3)") do
+      within(".link:nth-of-type(3)") do
       expect(page).to have_content("JavaScript for Cats")
     end
   end

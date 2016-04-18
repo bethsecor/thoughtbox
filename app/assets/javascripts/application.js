@@ -19,4 +19,5 @@ $(document).ready( function(){
   markAsUnread();
   searchLinks();
   filterStatus();
+  sortAlphabetically();
 });
