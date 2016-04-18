@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "UserCanSubmitLinks", type: :feature do
   it 'should see a form to submit a link when logged in' do
+    other_link = create(:link)
     user = create(:user)
     ApplicationController.any_instance.stubs(:current_user).returns(user)
 

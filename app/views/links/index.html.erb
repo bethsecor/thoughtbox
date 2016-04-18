@@ -1,1 +1,23 @@
+<h1>Thought Box</h1>
+
 <%= link_to "Sign Out", logout_path, method: :delete %>
+
+<%= form_for @link do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  <br>
+  <%= f.submit "Submit" %>
+<% end %>
+
+<h3>My Links</h3>
+
+<div id="links-list">
+  <% @links.each do |link| %>
+    <div class="link" id="link-<%= link.id %>">
+      <%= link_to link.title, link.url %>
+    </div>
+  <% end %>
+</div>
